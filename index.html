@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Learn Redux - MERN Stack Career Path - IC</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <button id="toggleBtn">OFF</button>
+
+    <script>
+      // Get the button element
+      const button = document.getElementById("toggleBtn");
+
+      // Initialize a toggle state
+      let isOn = true;
+
+      // Add click event listener
+      button.addEventListener("click", () => {
+        isOn = !isOn; // Toggle the state
+        button.textContent = isOn ? "ON" : "OFF"; // Update button text
+        button.style.backgroundColor = isOn ? "green" : "red"; // Change color
+      });
+    </script>
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
