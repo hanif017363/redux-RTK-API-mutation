@@ -1,4 +1,5 @@
 import { useGetPostQuery } from "../features/api/apislice";
+import EditPost from "./EditPost";
 
 function Post({ postId }) {
   const { data: post, isLoading, isError } = useGetPostQuery(postId);
@@ -26,6 +27,7 @@ function Post({ postId }) {
       ) : (
         <p className="text-gray-500">No content available</p>
       )}
+      {post?.id && <EditPost post={post} />}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useEditPostMutation } from "../features/api/apislice";
 
 function EditPost({ post }) {
@@ -8,6 +8,11 @@ function EditPost({ post }) {
     useEditPostMutation();
   const [title, setTitle] = useState(post?.title);
   const [text, setText] = useState(post?.body);
+
+  useEffect(() => {
+    setTitle(post?.title);
+    setText(post?.body);
+  }, [post?.body, post?.title]);
 
   const handleEdit = (e) => {
     e.preventDefault();
@@ -20,7 +25,6 @@ function EditPost({ post }) {
 
   return (
     <div>
-      <h2>Edit Post</h2>
       <form onSubmit={handleEdit}>
         <input
           type="text"

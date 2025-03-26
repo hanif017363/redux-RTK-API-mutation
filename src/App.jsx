@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Posts from "./components/Posts";
 import { useAddPostMutation } from "./features/api/apislice";
-import EditPost from "./components/EditPost";
 
 export default function App() {
   const [addPost, { data: post, isLoading, isError, isSuccess }] =
@@ -24,7 +23,6 @@ export default function App() {
   return (
     <div className="w-screen h-full min-h-screen p-10 bg-gray-100 text-slate-700">
       <p>RTK Querry</p>
-      <EditPost post={post} />
 
       <div className="m-6">
         <button
