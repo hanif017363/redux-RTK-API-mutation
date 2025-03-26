@@ -2,7 +2,7 @@
 // import { useDispatch, useSelector } from "react-redux";
 // import { fetchPosts } from "../features/posts/postsSlice";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useGetPostsQuery } from "../features/api/apislice";
 import Post from "./Post";
 
@@ -27,7 +27,9 @@ export default function Posts() {
     content = <h1>Loading posts...</h1>;
   }
   if (!isLoading && isError) {
-    content = <h1 className="text-red-500">There was an error: {error}</h1>;
+    content = (
+      <h1 className="text-red-500">There was an error: {error.message} </h1>
+    );
   }
 
   if (!isLoading && !isError) {
@@ -49,7 +51,7 @@ export default function Posts() {
         </ul>
       );
     } else {
-      content = <h1>No posts found!</h1>;
+      content = <p>No posts found!</p>;
     }
   }
 
